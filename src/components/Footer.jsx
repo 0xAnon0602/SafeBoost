@@ -108,7 +108,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <a 
-              href="https://github.com/safe-global" 
+              href="https://github.com/0xAnon0602/SafeBoost" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
