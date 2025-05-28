@@ -48,47 +48,47 @@ function App() {
       <Header />
       
       <div className="bg-gradient-to-br from-safe-500 via-safe-600 to-gnosis-500 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               SafeBoost Points
             </h1>
-            <p className="text-xl sm:text-2xl text-white text-opacity-90 mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white text-opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               Track your rewards across partner protocols and climb the leaderboard
             </p>
             
-            <div className="max-w-2xl mx-auto">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <div className="max-w-2xl mx-auto px-4 sm:px-0">
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <div className="relative">
+                  <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
                   <input
                     type="text"
-                    placeholder="Enter wallet address to view profile..."
+                    placeholder="Enter wallet address..."
                     value={searchAddress}
                     onChange={(e) => setSearchAddress(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                    className="w-full pl-12 pr-4 py-4 text-gray-900 placeholder-gray-500 bg-white rounded-xl border-0 focus:ring-4 focus:ring-white focus:ring-opacity-20 outline-none text-lg"
+                    className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 text-gray-900 placeholder-gray-500 bg-white rounded-lg sm:rounded-xl border-0 focus:ring-2 sm:focus:ring-4 focus:ring-white focus:ring-opacity-20 outline-none text-sm sm:text-base lg:text-lg"
                   />
                 </div>
                 <button
                   onClick={handleSearch}
-                  className="px-8 py-4 bg-white text-safe-600 font-semibold rounded-xl hover:bg-gray-50 transition-colors duration-200 whitespace-nowrap"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-safe-600 font-semibold rounded-lg sm:rounded-xl hover:bg-gray-50 transition-colors duration-200 text-sm sm:text-base"
                 >
                   Search Profile
                 </button>
               </div>
               
               {searchError && (
-                <div className="mt-4 p-4 bg-red-500 bg-opacity-20 border border-red-300 rounded-lg">
-                  <p className="text-red-200">{searchError}</p>
+                <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-red-500 bg-opacity-20 border border-red-300 rounded-lg">
+                  <p className="text-red-200 text-sm sm:text-base">{searchError}</p>
                 </div>
               )}
               
               {searchResult && (
-                <div className="mt-4">
+                <div className="mt-3 sm:mt-4">
                   <button
                     onClick={clearSearch}
-                    className="text-white text-opacity-80 hover:text-opacity-100 underline"
+                    className="text-white text-opacity-80 hover:text-opacity-100 underline text-sm sm:text-base"
                   >
                     ← View Full Leaderboard
                   </button>
@@ -99,8 +99,8 @@ function App() {
         </div>
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="space-y-8 sm:space-y-12">
           {searchResult ? (
             <>
               <UserProfile searchResult={searchResult} />
