@@ -1,28 +1,18 @@
 import React from 'react';
 import { Award, Shield, Trophy, Percent } from 'lucide-react';
-import { userProfile, programStats, calculateRank } from '../data/Data';
+import { programStats, calculateRank } from '../data/Data';
 
 const UserProfile = ({ searchResult }) => {
   const formatAddress = (address) => {
     return `${address.slice(0, 8)}...${address.slice(-6)}`;
   };
 
-  // Use searchResult if provided, otherwise use default userProfile
-  const currentUser = searchResult ? {
+  const currentUser = {
     address: searchResult.address,
     totalPoints: searchResult.total_points,
     rank: calculateRank(searchResult.address),
     beefyPoints: searchResult.beefy_points,
     pooltogetherPoints: searchResult.pooltogether_points,
-    weeklyTransactions: Math.floor(Math.random() * 20) + 5, // Mock data
-    totalTransactions: Math.floor(Math.random() * 100) + 50, // Mock data
-    tvl: Math.floor(Math.random() * 20000) + 5000, // Mock data
-    joinedWeek: Math.floor(Math.random() * 9) + 1, // Mock data
-    pointsBooster: searchResult.total_points > 1000, // Mock logic
-    prePausePoints: Math.floor(searchResult.total_points * 0.5) // Mock data
-  } : {
-    ...userProfile,
-    rank: calculateRank(userProfile.address)
   };
 
   const pointsPercentage = ((currentUser.totalPoints / programStats.totalPointsDistributed) * 100).toFixed(3);
@@ -130,8 +120,8 @@ const UserProfile = ({ searchResult }) => {
 
               <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border border-yellow-200">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-lg">🐄</span>
+                  <div style={{ backgroundColor: '#232742' }} className="w-10 h-10  rounded-lg flex items-center justify-center">
+                    <img src="https://avatars.githubusercontent.com/u/71276150?s=200&v=4" className="w-10 h-10" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Beefy Points</div>
@@ -148,8 +138,8 @@ const UserProfile = ({ searchResult }) => {
 
               <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg border border-purple-200">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-lg">🎯</span>
+                  <div style={{ backgroundColor: '#21064F' }} className="w-10 h-10 rounded-lg flex items-center justify-center">
+                    <img src="https://avatars.githubusercontent.com/u/52546024?s=200&v=4" className="w-7 h-7" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">PoolTogether Points</div>

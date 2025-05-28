@@ -32006,7 +32006,7 @@ export const partnerPrograms = [
   },
   {
     name: "Beefy",
-    description: "Deposit into incentivized Beefy vaults",
+    description: "Deposit into incentivized vaults of Beefy Finance",
     prizePool: "$100 per vault per week",
     color: "#232742",
     icon: "https://avatars.githubusercontent.com/u/71276150?s=200&v=4",
@@ -32029,17 +32029,3 @@ export const partnerPrograms = [
     ]
   }
 ];
-
-export const userProfile = {
-  address: "0x822521e6135cd259199199c83ea3517929229172ee",
-  totalPoints: 1271.0,
-  rank: 1,
-  beefyPoints: 0,
-  pooltogetherPoints: 0,
-  weeklyTransactions: 12,
-  totalTransactions: 89,
-  tvl: 15420.50,
-  joinedWeek: 1,
-  pointsBooster: true,
-  prePausePoints: 635.5
-}; 
