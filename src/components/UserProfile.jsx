@@ -28,32 +28,34 @@ const UserProfile = ({ searchResult }) => {
       <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl card-shadow-lg overflow-hidden">
         <div className="bg-gradient-to-r from-safe-500 to-safe-600 p-4 sm:p-6 lg:p-8 text-white">
           <div className="flex flex-col gap-4 sm:gap-6">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white bg-opacity-20 rounded-xl sm:rounded-2xl flex items-center justify-center backdrop-blur-sm mx-auto sm:mx-0">
-                <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-              </div>
-              <div className="text-center sm:text-left">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
-                  {searchResult ? 'SafeBoost Profile' : 'Your SafeBoost Profile'}
-                </h1>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                  <code className="text-sm sm:text-base lg:text-lg font-mono bg-white bg-opacity-20 px-2 sm:px-3 py-1 sm:py-2 rounded-md sm:rounded-lg backdrop-blur-sm">
-                    <span className="sm:hidden">{formatAddressMobile(currentUser.address)}</span>
-                    <span className="hidden sm:inline">{formatAddress(currentUser.address)}</span>
-                  </code>
-                  {currentUser.rank <= 3 && (
-                    <div className="flex items-center justify-center sm:justify-start space-x-1 bg-yellow-400 bg-opacity-20 px-2 sm:px-3 py-1 rounded-full">
-                      <Trophy className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-200" />
-                      <span className="text-xs sm:text-sm font-medium text-yellow-200">Top Performer</span>
-                    </div>
-                  )}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 w-full">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white bg-opacity-20 rounded-xl sm:rounded-2xl flex items-center justify-center backdrop-blur-sm mx-auto sm:mx-0">
+                  <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                </div>
+                <div className="text-center sm:text-left">
+                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
+                    {searchResult ? 'SafeBoost Profile' : 'Your SafeBoost Profile'}
+                  </h1>
+                  <div className="flex flex-row flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+                    <code className="text-sm sm:text-base lg:text-lg font-mono bg-white bg-opacity-20 px-2 sm:px-3 py-1 sm:py-2 rounded-md sm:rounded-lg backdrop-blur-sm">
+                      <span className="sm:hidden">{formatAddressMobile(currentUser.address)}</span>
+                      <span className="hidden sm:inline">{formatAddress(currentUser.address)}</span>
+                    </code>
+                    {currentUser.rank <= 3 && (
+                      <div className="flex items-center justify-center sm:justify-start space-x-1 bg-yellow-400 bg-opacity-20 px-2 sm:px-3 py-1 rounded-full">
+                        <Trophy className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-200" />
+                        <span className="text-xs sm:text-sm font-medium text-yellow-200">Top Performer</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="text-center sm:text-center lg:text-right">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">{currentUser.totalPoints.toLocaleString()}</div>
-              <div className="text-sm sm:text-base lg:text-lg text-white text-opacity-90">Total Points</div>
+              
+              <div className="text-center sm:text-right mt-2 sm:mt-0">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">{currentUser.totalPoints.toLocaleString()}</div>
+                <div className="text-sm sm:text-base lg:text-lg text-white text-opacity-90">Total Points</div>
+              </div>
             </div>
           </div>
         </div>
