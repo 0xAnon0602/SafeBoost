@@ -25925,8 +25925,8 @@ export const leaderboardData = rawLeaderboardData
   .map(user => ({
     ...user,
     total_points: user.total_points === null || user.total_points === undefined 
-      ? user.beefy_points + user.pooltogether_points 
-      : user.total_points
+      ? parseFloat(user.beefy_points) + parseFloat(user.pooltogether_points)
+      : parseFloat(user.total_points)
   }))
   .filter(user => user.total_points > 0)
   .sort((a, b) => b.total_points - a.total_points);
@@ -25948,7 +25948,7 @@ export const getLeaderboardWithRanks = () => {
 
 const calculateProgramStats = () => {
   const totalParticipants = leaderboardData.length;
-  const totalPointsDistributed = leaderboardData.reduce((sum, user) => sum + user.total_points, 0);
+  const totalPointsDistributed = leaderboardData.reduce((sum, user) => sum + parseFloat(user.total_points), 0);
   
   return {
     totalParticipants,
