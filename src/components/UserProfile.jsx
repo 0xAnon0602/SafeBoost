@@ -13,10 +13,11 @@ const UserProfile = ({ searchResult }) => {
 
   const currentUser = {
     address: searchResult.address,
-    totalPoints: searchResult.total_points,
-    rank: calculateRank(searchResult.address),
+    safePoints: searchResult.total_points,
     beefyPoints: searchResult.beefy_points,
     pooltogetherPoints: searchResult.pooltogether_points,
+    totalPoints: searchResult.total_points,
+    rank: calculateRank(searchResult.address),
   };
 
   const pointsPercentage = ((currentUser.totalPoints / programStats.totalPointsDistributed) * 100).toFixed(3);
@@ -119,10 +120,7 @@ const UserProfile = ({ searchResult }) => {
                 </div>
                 <div className="text-right">
                   <div className="text-lg sm:text-2xl font-bold text-gray-900">
-                    {(currentUser.totalPoints - currentUser.beefyPoints - currentUser.pooltogetherPoints).toLocaleString()}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
-                    {(((currentUser.totalPoints - currentUser.beefyPoints - currentUser.pooltogetherPoints) / currentUser.totalPoints) * 100).toFixed(1)}%
+                    {currentUser.safePoints.toLocaleString()}
                   </div>
                 </div>
               </div>
@@ -139,9 +137,6 @@ const UserProfile = ({ searchResult }) => {
                 </div>
                 <div className="text-right">
                   <div className="text-lg sm:text-2xl font-bold text-gray-900">{currentUser.beefyPoints.toLocaleString()}</div>
-                  <div className="text-xs sm:text-sm text-gray-600">
-                    {((currentUser.beefyPoints / currentUser.totalPoints) * 100).toFixed(1)}%
-                  </div>
                 </div>
               </div>
 
@@ -157,25 +152,6 @@ const UserProfile = ({ searchResult }) => {
                 </div>
                 <div className="text-right">
                   <div className="text-lg sm:text-2xl font-bold text-gray-900">{currentUser.pooltogetherPoints.toLocaleString()}</div>
-                  <div className="text-xs sm:text-sm text-gray-600">
-                    {((currentUser.pooltogetherPoints / currentUser.totalPoints) * 100).toFixed(1)}%
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between p-3 sm:p-4 bg-gray-900 rounded-lg text-white border-t-4 border-safe-500">
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-20 rounded-md sm:rounded-lg flex items-center justify-center">
-                    <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-base sm:text-lg">Total Points</div>
-                    <div className="text-xs sm:text-sm text-gray-300">All sources combined</div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-xl sm:text-3xl font-bold">{currentUser.totalPoints.toLocaleString()}</div>
-                  <div className="text-xs sm:text-sm text-gray-300">100%</div>
                 </div>
               </div>
             </div>
